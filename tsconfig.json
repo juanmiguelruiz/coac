@@ -21,7 +21,13 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "components": ["src/components/"],
+      "components/*": ["src/components/*"],
+      "pages": ["src/pages/"],
+      "pages/*": ["src/pages/*"],
+      "services":["src/services/"],
+      "services/*":["src/services/*"]
     }
   },
   "include": ["src", "tests", "*.config.ts", "*.config.js", "vite.config.ts", "jest.setup.js"]

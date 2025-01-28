@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/routes.tsx","./src/vite-env.d.ts","./src/components/layout/index.tsx","./src/pages/home/hooks.ts","./src/pages/home/index.tsx","./src/services/coac.ts","./src/tests/setup.test.ts","./vite.config.ts","./commitlint.config.js","./eslint.config.js","./jest.config.js","./jest.setup.js"],"errors":true,"version":"5.6.3"}
