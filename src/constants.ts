@@ -4,9 +4,13 @@ export const ROUTES = {
   HOME: '/',
   GROUPS: '/groups',
   LIVE: '/live',
+  GROUP: '/groups/:groupNid',
 };
 
 export const LITERALS = {
+  Groups: {
+    Title: 'Agrupaciones',
+  },
   TabBar: {
     Home: 'Hoy',
     Groups: 'Agrupaciones',

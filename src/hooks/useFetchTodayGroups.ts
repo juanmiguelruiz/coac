@@ -1,13 +1,13 @@
-import { useQuery, UseQueryResult } from '@tanstack/react-query';
+import { useSuspenseQuery, UseSuspenseQueryResult } from '@tanstack/react-query';
 import { colors, QueryKeys } from '@/constants';
 import { getTodayGroups } from 'services/coac';
-import { Show } from './types';
+import { type Show } from 'types/coac';
 
-export const parseShowData = (input: string, colors: string[]): Show[] =>
+const parseShowData = (input: string, colors: string[]): Show[] =>
   input?.split('||').map((entry, index) => {
     const [id, title, type, time] = entry?.split('::');
     return {
-      id: parseInt(id, 10),
+      id: id.trim(),
       title: title.replace(/"/g, '').trim(),
       type: type.trim(),
       time: time.trim(),
@@ -15,9 +15,12 @@ export const parseShowData = (input: string, colors: string[]): Show[] =>
     };
   });
 
-export const useFetchTodayGroups = (): UseQueryResult<Show[]> =>
-  useQuery({
+const useFetchTodayGroups = (): UseSuspenseQueryResult<Show[]> =>
+  useSuspenseQuery({
     queryKey: [QueryKeys.FETCH_TODAY_GROUPS],
     queryFn: getTodayGroups,
     select: data => parseShowData(data.agrupaciones, colors),
+    staleTime: 1000 * 60 * 60,
   });
+
+export default useFetchTodayGroups;

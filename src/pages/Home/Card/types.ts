@@ -1,7 +1,7 @@
 export interface CardProps {
+  id: string;
   title: string;
   type: string;
-  time?: string;
-  image?: string;
+  time: string;
   color: string;
 }

@@ -4,18 +4,35 @@ export enum GroupCategory {
 
 export type Group = {
   agrupaciones: string;
+  autorletra: string;
+  autormusica: string;
   categoria: GroupCategory;
   descansos: string;
+  director: string;
   fase: string;
   fecha: string;
-  nid: string;
-  titulo: string;
-  modalidad: string;
   fotos: string;
+  modalidad: string;
+  nid: string;
+  localidad: string;
+  titulo: string;
+  year: string;
+  agrupacion2024: string;
+  [key: string]: string;
 };
 
-export type NodeGroups = { node: Group }[];
+export type NodeGroup = { node: Group };
+
+export type NodeGroups = NodeGroup[];
 
 export interface GroupList {
   nodes: NodeGroups;
 }
+
+export type Show = {
+  id: string;
+  title: string;
+  type: string;
+  time: string;
+  color: string;
+};
