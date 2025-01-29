@@ -10,6 +10,12 @@ export const LITERALS = {
     Groups: 'Agrupaciones',
     Live: 'En Directo',
   },
+  Live: {
+    Title: 'En Directo',
+    Radio: 'Radio OC',
+    TV: 'TV OC',
+    Youtube: 'Youtube',
+  },
 };
 
 export const QueryKeys = {
