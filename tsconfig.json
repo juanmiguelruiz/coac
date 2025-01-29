@@ -27,7 +27,9 @@
       "pages": ["src/pages/"],
       "pages/*": ["src/pages/*"],
       "services":["src/services/"],
-      "services/*":["src/services/*"]
+      "services/*":["src/services/*"],
+      "types": ["src/types/"],
+      "types/*": ["src/types/*"],
     }
   },
   "include": ["src", "tests", "*.config.ts", "*.config.js", "vite.config.ts", "jest.setup.js"]

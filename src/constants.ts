@@ -1,3 +1,5 @@
+export const CURRENT_YEAR = '2025';
+
 export const ROUTES = {
   HOME: '/',
   GROUPS: '/groups',
@@ -20,6 +22,7 @@ export const LITERALS = {
 
 export const QueryKeys = {
   FETCH_TODAY_GROUPS: 'FETCH_TODAY_GROUPS',
+  FETCH_GROUPS: 'FETCH_GROUPS',
 };
 
 export const colors = [
