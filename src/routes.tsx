@@ -11,8 +11,8 @@ export const Router = () => (
         <Route path={ROUTES.HOME} element={<Home />} />
         <Route path={ROUTES.GROUPS} element={<Groups />} />
         <Route path={ROUTES.LIVE} element={<Live />} />
+        <Route path={ROUTES.GROUP} element={<Group />} />
       </Route>
-      <Route path={ROUTES.GROUP} element={<Group />} />
     </Routes>
   </BrowserRouter>
 );

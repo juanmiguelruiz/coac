@@ -8,8 +8,16 @@ export const ROUTES = {
 };
 
 export const LITERALS = {
+  Header: `COAC ${CURRENT_YEAR}`,
+  Home: 'Hoy en el falla',
   Groups: {
     Title: 'Agrupaciones',
+    Select: {
+      All: 'Todas las Modalidades',
+      Chirigota: 'Chirigota',
+      Comparsa: 'Comparsa',
+      Cuarteto: 'Cuarteto',
+    },
   },
   TabBar: {
     Home: 'Hoy',

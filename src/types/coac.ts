@@ -1,3 +1,5 @@
+import { LITERALS } from '@/constants';
+
 export enum GroupCategory {
   Adulto = 'Adulto',
 }
@@ -45,4 +47,11 @@ export type DetailGroup = {
     link: string;
     nid: string;
   };
+};
+
+export const Categories = {
+  All: LITERALS.Groups.Select.All,
+  Chirigota: LITERALS.Groups.Select.Chirigota,
+  Comparsa: LITERALS.Groups.Select.Comparsa,
+  Cuarteto: LITERALS.Groups.Select.Cuarteto,
 };

@@ -1,5 +1,5 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Header, Spinner } from 'components';
+import { Spinner } from 'components';
 import { selectGroupByNid, selectSlugName } from 'store/groupsStore';
 import type { DetailGroup, Group } from 'types/coac';
 import { useFetchGroups } from './hooks';
@@ -23,8 +23,7 @@ const Group = () => {
 
   return (
     <>
-      <Header hideTabBar />
-      <div className="flex flex-col gap-8 px-4 p-6 bg-amber-50 @container">
+      <div className="flex flex-col gap-8 px-4 p-6 bg-amber-50 @container min-h-[calc(100dvh-4rem)] :">
         <Link
           to="#"
           onClick={e => {
