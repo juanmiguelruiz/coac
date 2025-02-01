@@ -27,6 +27,7 @@ export const LITERALS = {
 export const QueryKeys = {
   FETCH_TODAY_GROUPS: 'FETCH_TODAY_GROUPS',
   FETCH_GROUPS: 'FETCH_GROUPS',
+  FETCH_DETAIL_GROUP: 'FETCH_DETAIL_GROUP',
 };
 
 export const colors = [
@@ -36,4 +37,5 @@ export const colors = [
   'bg-blue-300',
   'bg-violet-300',
   'bg-slate-300',
+  'bg-pink-300',
 ];

@@ -1,4 +1,4 @@
-import { Group, GroupList } from '@/types/coac';
+import type { DetailGroup, Group, GroupList } from 'types/coac';
 
 const BASE_URL = 'https://contenidos.ondacadiz.es/';
 
@@ -14,4 +14,9 @@ export const getTodayGroups = async (): Promise<Group> => {
 export const getGroupsByYear = async (year: string): Promise<GroupList> => {
   const response = fetch(`${BASE_URL}app_carnaval_fichas/${year}`);
   return response.then(response => response.json());
+};
+
+export const getDetailGroup = async (slugName: string): Promise<DetailGroup[]> => {
+  const response = fetch(`${BASE_URL}app_carnaval_contenidos_detalle_ficha_slug/${slugName}`);
+  return response.then(response => response.json()).then(response => response.nodes);
 };

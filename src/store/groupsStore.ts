@@ -12,6 +12,12 @@ export const selectGroupByNid = (nid: string): Group | undefined => {
   return groups.find(group => group.node.nid === nid)?.node;
 };
 
+export const selectSlugName = (nid: string): string | undefined => {
+  const group = selectGroupByNid(nid);
+  const slug = group?.slug;
+  return slug?.substring(slug.lastIndexOf('/') + 1);
+};
+
 export const useGroupsStore = create<GroupState>(set => ({
   groups: [],
   todayShows: [],

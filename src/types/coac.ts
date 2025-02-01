@@ -18,6 +18,7 @@ export type Group = {
   titulo: string;
   year: string;
   agrupacion2024: string;
+  slug: string;
   [key: string]: string;
 };
 
@@ -29,10 +30,19 @@ export interface GroupList {
   nodes: NodeGroups;
 }
 
-export type Show = {
+export interface Show {
   id: string;
   title: string;
   type: string;
   time: string;
   color: string;
+}
+
+export type DetailGroup = {
+  node: {
+    audio: string;
+    foto_original: string;
+    link: string;
+    nid: string;
+  };
 };
