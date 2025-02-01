@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { LITERALS } from '@/constants';
+import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
 import { useGroupsStore } from 'store/groupsStore';
 import { type NodeGroups } from 'types/coac';
 import Card from './Card';
@@ -30,7 +31,15 @@ const Groups = (): JSX.Element => {
   const [searchTerm, setSearchTerm] = useState('');
   // const [categoryTerm, setCategoryTerm] = useState('');
 
+  const [visibleCount, setVisibleCount] = useState(3);
   const filteredGroups = filterGroups({ groups, searchTerm, categoryTerm: '' });
+  const visibleItems = filteredGroups.slice(0, visibleCount);
+
+  const loadMore = () => {
+    setVisibleCount(prev => Math.min(prev + 3, filteredGroups.length));
+  };
+
+  const observerRef = useInfiniteScroll(loadMore, { loading: false });
 
   return (
     <div className="flex flex-col justify-center gap-6">
@@ -66,10 +75,11 @@ const Groups = (): JSX.Element => {
         </div> */}
       </div>
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
-        {filteredGroups.map(({ node }) => (
+        {visibleItems.map(({ node }) => (
           <Card key={node.nid} nid={node.nid} />
         ))}
       </div>
+      <div ref={observerRef} style={{ height: 1, background: 'transparent' }} />
     </div>
   );
 };
