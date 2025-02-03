@@ -10,7 +10,7 @@ if (!rootElement) throw new Error('Failed to find the root element');
 
 createRoot(rootElement).render(
   <StrictMode>
-    <Suspense fallback={<Spinner />}>
+    <Suspense fallback={<Spinner fullScreen />}>
       <QueryClientProvider>
         <Router />
       </QueryClientProvider>

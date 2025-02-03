@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import { GroupDetails } from '@/components';
+import { ROUTES } from '@/constants';
 import { selectGroupByNid } from '@/store/groupsStore';
 
 const Card = ({ nid }: { nid: string }): JSX.Element | null => {
@@ -12,7 +14,7 @@ const Card = ({ nid }: { nid: string }): JSX.Element | null => {
   const { autorletra, autormusica, director, fotos, localidad, modalidad, titulo, year } = group;
 
   const handleClick = () => {
-    navigate(`/groups/${nid}`);
+    navigate(ROUTES.GROUP.replace(':groupNid', nid));
   };
 
   return (
@@ -24,26 +26,12 @@ const Card = ({ nid }: { nid: string }): JSX.Element | null => {
           {modalidad} ({year})
         </p>
       </div>
-      <div>
-        <p>
-          Localidad: <span className="poppins">{localidad}</span>
-        </p>
-        {director && (
-          <p>
-            Dirección: <span className="poppins">{director}</span>
-          </p>
-        )}
-        {autorletra && (
-          <p>
-            Letra: <span className="poppins">{autorletra}</span>
-          </p>
-        )}
-        {autormusica && (
-          <p>
-            Música: <span className="poppins">{autormusica}</span>
-          </p>
-        )}
-      </div>
+      <GroupDetails
+        city={localidad}
+        director={director}
+        lyricsAuthor={autorletra}
+        musicAuthor={autormusica}
+      />
     </div>
   );
 };

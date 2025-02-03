@@ -8,16 +8,26 @@ export const ROUTES = {
 };
 
 export const LITERALS = {
+  Common: {
+    Back: '< Atrás',
+  },
   Header: `COAC ${CURRENT_YEAR}`,
   Home: 'Hoy en el falla',
   Groups: {
     Title: 'Agrupaciones',
+    Search: 'Buscar agrupaciones...',
     Select: {
       All: 'Todas las Modalidades',
       Chirigota: 'Chirigota',
       Comparsa: 'Comparsa',
       Cuarteto: 'Cuarteto',
     },
+    Videos: 'Vídeos',
+    Audios: 'Audios',
+  },
+  Group: {
+    previousYears: 'Otros años fueron:',
+    noShow: 'No participaron',
   },
   TabBar: {
     Home: 'Hoy',
@@ -30,7 +40,33 @@ export const LITERALS = {
     TV: 'TV OC',
     Youtube: 'Youtube',
   },
+  GroupDetail: {
+    city: 'Localidad:',
+    director: 'Dirección:',
+    lyrics: 'Letra:',
+    music: 'Música:',
+  },
+  Stages: {
+    preliminary: 'Preliminares',
+    quarters: 'Cuartos',
+    semifinals: 'Semifinales',
+    final: 'Final',
+  },
 };
+
+export const CATEGORIES = {
+  All: LITERALS.Groups.Select.All,
+  Chirigota: LITERALS.Groups.Select.Chirigota,
+  Comparsa: LITERALS.Groups.Select.Comparsa,
+  Cuarteto: LITERALS.Groups.Select.Cuarteto,
+};
+
+export const STAGES = [
+  LITERALS.Stages.preliminary,
+  LITERALS.Stages.quarters,
+  LITERALS.Stages.semifinals,
+  LITERALS.Stages.final,
+];
 
 export const QueryKeys = {
   FETCH_TODAY_GROUPS: 'FETCH_TODAY_GROUPS',
