@@ -1,4 +1,6 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import { STORED_GROUPS_KEY } from '@/constants';
 import type { Group, NodeGroups, Show } from 'types/coac';
 
 interface GroupState {
@@ -18,8 +20,16 @@ export const selectSlugName = (nid: string): string | undefined => {
   return slug?.substring(slug.lastIndexOf('/') + 1);
 };
 
-export const useGroupsStore = create<GroupState>(set => ({
-  groups: [],
-  todayShows: [],
-  updateGroups: (groups: NodeGroups) => set({ groups }),
-}));
+export const useGroupsStore = create<GroupState>()(
+  persist(
+    set => ({
+      groups: [],
+      todayShows: [],
+      updateGroups: groups => set({ groups }),
+    }),
+    {
+      name: STORED_GROUPS_KEY,
+      partialize: state => ({ groups: state.groups }),
+    }
+  )
+);
