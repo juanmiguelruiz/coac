@@ -79,6 +79,7 @@ export const colors = [
   'bg-yellow-300',
   'bg-orange-300',
   'bg-blue-300',
+  'bg-rose-300',
   'bg-violet-300',
   'bg-slate-300',
   'bg-pink-300',

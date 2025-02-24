@@ -14,11 +14,20 @@ export const filterGroups = ({
   const normalizedSearch = searchTerm.trim().toLowerCase().replace(/\s+/g, ' ');
 
   return groups.filter(({ node }) => {
-    const { titulo, modalidad } = node;
+    const { titulo, modalidad, localidad, autorletra, autormusica } = node;
     const normalizedTitle = titulo.trim().toLowerCase();
+    const normalizedCategory = modalidad.trim().toLowerCase();
+    const normalizedCity = localidad.trim().toLowerCase();
+    const normalizedAuthorLyrics = autorletra.trim().toLowerCase();
+    const normalizedAuthorMusic = autormusica.trim().toLowerCase();
 
-    const matchesText = !normalizedSearch || normalizedTitle.includes(normalizedSearch);
-    const matchesCategory = !categoryTerm || modalidad === categoryTerm;
+    const matchesText =
+      !normalizedSearch ||
+      normalizedTitle.includes(normalizedSearch) ||
+      normalizedAuthorLyrics.includes(normalizedSearch) ||
+      normalizedAuthorMusic.includes(normalizedSearch) ||
+      normalizedCity.includes(normalizedSearch);
+    const matchesCategory = !categoryTerm || normalizedCategory === categoryTerm;
 
     return matchesText && matchesCategory;
   });
