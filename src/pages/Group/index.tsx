@@ -61,7 +61,7 @@ const Group = (): JSX.Element => {
               {LITERALS.Groups.Videos}
               <div className="flex gap-4 flex-wrap justify-center md:justify-start">
                 {details?.map((detail: DetailGroup, index) => (
-                  <div className="flex flex-col gap-2 w-full md:w-1/3">
+                  <div key={detail.node.nid} className="flex flex-col gap-2 w-full md:w-1/3">
                     <lite-youtube videoid={getLastSegment(detail?.node?.link)} />
                     <p className="poppins text-sm text-center">{STAGES[index]}</p>
                   </div>
