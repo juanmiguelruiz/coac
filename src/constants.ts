@@ -1,4 +1,6 @@
 export const CURRENT_YEAR = '2025';
+export const START_DATE_COAC = '2025-01-23';
+export const END_DATE_COAC = '2025-02-28';
 
 export const ROUTES = {
   HOME: '/',
@@ -12,7 +14,6 @@ export const LITERALS = {
     Back: '< Atrás',
   },
   Header: `COAC ${CURRENT_YEAR}`,
-  Home: 'Hoy en el falla',
   Groups: {
     Title: 'Agrupaciones',
     Search: 'Buscar agrupaciones...',
@@ -30,9 +31,9 @@ export const LITERALS = {
     noShow: 'No participaron',
   },
   TabBar: {
-    Home: 'Hoy',
+    Home: 'Sesiones',
     Groups: 'Agrupaciones',
-    Live: 'En Directo',
+    Live: 'Directo',
   },
   Live: {
     Title: 'En Directo',
@@ -69,6 +70,7 @@ export const STAGES = [
 ];
 
 export const QueryKeys = {
+  FETCH_GROUPS_BY_DATE: 'FETCH_GROUPS_BY_DATE',
   FETCH_TODAY_GROUPS: 'FETCH_TODAY_GROUPS',
   FETCH_GROUPS: 'FETCH_GROUPS',
   FETCH_DETAIL_GROUP: 'FETCH_DETAIL_GROUP',

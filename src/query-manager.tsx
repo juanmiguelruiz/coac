@@ -6,9 +6,9 @@ import { useGroupsStore } from 'store/groupsStore';
 const queryClient = new QueryClient();
 
 export const SuspenseFetching = (): null => {
-  const { data: todayShowsData } = useFetchTodayGroups();
+  const { data: showsData } = useFetchTodayGroups();
   const { data: groupsData } = useFetchGroups();
-  useGroupsStore.setState({ groups: groupsData, todayShows: todayShowsData });
+  useGroupsStore.setState({ groups: groupsData, shows: showsData });
   return null;
 };
 

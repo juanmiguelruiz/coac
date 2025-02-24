@@ -30,12 +30,16 @@ export interface GroupList {
   nodes: NodeGroups;
 }
 
-export interface Show {
+export type Show = {
   id: string;
   title: string;
   type: string;
   time: string;
   color: string;
+};
+
+export interface Shows {
+  [key: string]: Show[];
 }
 
 export type DetailGroup = {
