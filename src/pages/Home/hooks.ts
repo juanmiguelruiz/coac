@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useEffect } from 'react';
 import { colors, QueryKeys } from '@/constants';
 import { parseShowData } from '@/utils';
 import { getShowsByDate } from 'services/coac';
@@ -20,9 +21,11 @@ const useFetchSession = (): void => {
     enabled: !isStoredDate && !!formattedDate,
   });
 
-  if (isSuccess && !isStoredDate) {
-    updateShows(data);
-  }
+  useEffect(() => {
+    if (isSuccess && !isStoredDate) {
+      updateShows(data);
+    }
+  }, [isSuccess, isStoredDate, data, updateShows]);
 };
 
 export default useFetchSession;
