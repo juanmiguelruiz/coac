@@ -5,6 +5,7 @@ import { selectGroupByNid, selectSlugName } from 'store/groupsStore';
 import type { DetailGroup, Group } from 'types/coac';
 import { useFetchGroups } from './hooks';
 import { getLastSegment, getPreviousYears } from './utils';
+import '@justinribeiro/lite-youtube';
 
 const Group = (): JSX.Element => {
   const navigate = useNavigate();
@@ -60,13 +61,8 @@ const Group = (): JSX.Element => {
               {LITERALS.Groups.Videos}
               <div className="flex gap-4 flex-wrap justify-center md:justify-start">
                 {details?.map((detail: DetailGroup, index) => (
-                  <div className="flex flex-col gap-2">
-                    <iframe
-                      className="rounded-xl w-full max-w-120 aspect-video"
-                      src={`https://www.youtube.com/embed/${getLastSegment(detail?.node?.link)}`}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                      allowFullScreen
-                    ></iframe>
+                  <div className="flex flex-col gap-2 w-full">
+                    <lite-youtube videoid={getLastSegment(detail?.node?.link)} />
                     <p className="poppins text-sm text-center">{STAGES[index]}</p>
                   </div>
                 ))}

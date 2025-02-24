@@ -18,3 +18,10 @@ select {
   background-position: right 0.7rem top 50%;
   background-size: 0.65rem auto;
 }
+
+lite-youtube {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 16px;
+}
