@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useGroupsStore } from '@/store/groupsStore';
 import { type Day, type DateCarouselProps, Direction } from './types';
 import 'dayjs/locale/es';
 
@@ -17,6 +18,7 @@ const DateCarousel = ({
   const [weekStart, setWeekStart] = useState(dayjs().startOf('week'));
   const [selectedDate, setSelectedDate] = useState(dayjs().format('YYYY-MM-DD'));
   const [days, setDays] = useState<Day[]>([]);
+  const updateSelectedDate = useGroupsStore(state => state.updateSelectedDate);
 
   useEffect(() => {
     const generateDays = () => {
@@ -55,6 +57,7 @@ const DateCarousel = ({
   const goToToday = () => {
     setWeekStart(dayjs().startOf('week'));
     setSelectedDate(dayjs().format('YYYY-MM-DD'));
+    updateSelectedDate(dayjs().format('YYYY-MM-DD'));
   };
 
   const isToday = (date: string) => {
