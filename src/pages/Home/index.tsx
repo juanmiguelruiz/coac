@@ -22,7 +22,7 @@ const Home = (): JSX.Element => {
         onDayPick={handleDateChange}
       />
       <div className="flex gap-2 flex-col">
-        {showsByDate ? (
+        {showsByDate.length ? (
           showsByDate.map(({ id, title, type, time, color }) => (
             <Card key={id} color={color} id={id.toString()} time={time} title={title} type={type} />
           ))
