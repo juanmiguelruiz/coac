@@ -4,7 +4,7 @@ import { parseShowData } from '@/utils';
 import { getShowsByDate } from 'services/coac';
 import { useGroupsStore } from 'store/groupsStore';
 
-const useFetchGroups = (): void => {
+const useFetchSession = (): void => {
   const selectedDate = useGroupsStore(state => state.selectedDate);
   const today = new Date(selectedDate ?? new Date());
   const formattedDate = today.toISOString().split('T')[0];
@@ -25,4 +25,4 @@ const useFetchGroups = (): void => {
   }
 };
 
-export default useFetchGroups;
+export default useFetchSession;

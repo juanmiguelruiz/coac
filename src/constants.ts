@@ -13,6 +13,9 @@ export const LITERALS = {
   Common: {
     Back: '< Atrás',
   },
+  Home: {
+    NoSession: 'Hoy no hay sesión o aún está por determinar.',
+  },
   Header: `COAC ${CURRENT_YEAR}`,
   Groups: {
     Title: 'Agrupaciones',

@@ -62,7 +62,7 @@ const DateCarousel = ({
   };
 
   return (
-    <div className="w-full max-w-md text-center">
+    <div className="w-full max-w-85 text-center">
       <div className="flex justify-between items-center mb-4">
         <button
           onClick={() => handleWeekChange(Direction.PREV)}
@@ -90,7 +90,7 @@ const DateCarousel = ({
             <button
               key={day.fullDate}
               onClick={() => handleDayClick(day.fullDate)}
-              className={`flex w-11 flex-col items-center p-1.5 rounded-xl transition-colors border ${day.isSelected ? 'bg-red-200 border-black' : 'hover:bg-gray-100 border-transparent'}`}
+              className={`flex w-11 flex-col items-center p-1.5 rounded-xl transition-colors border ${day.isSelected ? 'bg-red-200 border-black' : 'border-transparent'}`}
             >
               <span className="text-sm font-medium">{day.dayOfWeek}</span>
               <span className="text-lg font-bold">{day.dayOfMonth}</span>
