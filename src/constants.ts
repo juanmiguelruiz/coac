@@ -89,5 +89,3 @@ export const colors = [
   'bg-slate-300',
   'bg-pink-300',
 ];
-
-export const STORED_GROUPS_KEY = `groups-${CURRENT_YEAR}-storage`;

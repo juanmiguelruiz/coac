@@ -1,6 +1,4 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import { STORED_GROUPS_KEY } from '@/constants';
 import type { Group, NodeGroups, Show, Shows } from 'types/coac';
 
 interface GroupState {
@@ -10,6 +8,7 @@ interface GroupState {
   updateGroups: (groups: NodeGroups) => void;
   updateShows: (newShows: Shows) => void;
   updateSelectedDate: (date: string) => void;
+  selectShowsByDate: () => Show[];
 }
 
 export const selectGroupByNid = (nid: string): Group | undefined => {
@@ -23,27 +22,18 @@ export const selectSlugName = (nid: string): string | undefined => {
   return slug?.substring(slug.lastIndexOf('/') + 1);
 };
 
-export const selectShowsByDate = (): Show[] => {
-  const { shows, selectedDate } = useGroupsStore.getState();
-  return shows[selectedDate];
-};
-
-export const useGroupsStore = create<GroupState>()(
-  persist(
-    (set, get) => ({
-      groups: [],
-      shows: {},
-      selectedDate: new Date().toISOString().split('T')[0],
-      updateGroups: groups => set({ groups }),
-      updateShows: newShows => {
-        const shows = get().shows;
-        set({ shows: { ...shows, ...newShows } });
-      },
-      updateSelectedDate: date => set({ selectedDate: date }),
-    }),
-    {
-      name: STORED_GROUPS_KEY,
-      partialize: state => ({ groups: state.groups, shows: state.shows }),
-    }
-  )
-);
+export const useGroupsStore = create<GroupState>()((set, get) => ({
+  groups: [],
+  shows: {},
+  selectedDate: new Date().toISOString().split('T')[0],
+  updateGroups: groups => set({ groups }),
+  updateShows: newShows => {
+    const shows = get().shows;
+    set({ shows: { ...shows, ...newShows } });
+  },
+  updateSelectedDate: date => set({ selectedDate: date }),
+  selectShowsByDate: () => {
+    const shows = get().shows[get().selectedDate];
+    return shows || [];
+  },
+}));

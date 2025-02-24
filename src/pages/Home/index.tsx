@@ -1,11 +1,12 @@
 import { END_DATE_COAC, LITERALS, START_DATE_COAC } from '@/constants';
-import { selectShowsByDate, useGroupsStore } from 'store/groupsStore';
+import { useGroupsStore } from 'store/groupsStore';
 import Card from './Card';
 import DateCarousel from './DateCarousel';
 import useFetchSession from './hooks';
 
 const Home = (): JSX.Element => {
   const updateSelectedDate = useGroupsStore(state => state.updateSelectedDate);
+  const selectShowsByDate = useGroupsStore(state => state.selectShowsByDate);
   const showsByDate = selectShowsByDate();
   useFetchSession();
 
