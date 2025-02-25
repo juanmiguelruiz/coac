@@ -16,7 +16,6 @@ export const filterGroups = ({
   return groups.filter(({ node }) => {
     const { titulo, modalidad, localidad, autorletra, autormusica } = node;
     const normalizedTitle = titulo.trim().toLowerCase();
-    const normalizedCategory = modalidad.trim().toLowerCase();
     const normalizedCity = localidad.trim().toLowerCase();
     const normalizedAuthorLyrics = autorletra.trim().toLowerCase();
     const normalizedAuthorMusic = autormusica.trim().toLowerCase();
@@ -27,8 +26,8 @@ export const filterGroups = ({
       normalizedAuthorLyrics.includes(normalizedSearch) ||
       normalizedAuthorMusic.includes(normalizedSearch) ||
       normalizedCity.includes(normalizedSearch);
-    const matchesCategory = !categoryTerm || normalizedCategory === categoryTerm;
 
+    const matchesCategory = !categoryTerm || modalidad === categoryTerm;
     return matchesText && matchesCategory;
   });
 };

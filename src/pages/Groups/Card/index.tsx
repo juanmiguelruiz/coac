@@ -18,7 +18,7 @@ const Card = ({ nid }: { nid: string }): JSX.Element | null => {
   };
 
   return (
-    <div className={`flex flex-col gap-4 px-4 py-2 rounded-xl border-2 `} onClick={handleClick}>
+    <div className={`flex flex-col gap-4 px-4 py-2 rounded-xl border-2`} onClick={handleClick}>
       {fotos && <img src={fotos} alt="card" className="rounded-xl" />}
       <div className="flex flex-col justify-between items-start">
         <p className="text-2xl font-bold">{titulo}</p>
